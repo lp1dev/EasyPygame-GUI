@@ -23,7 +23,7 @@ class eventHandler():
         self.loop = loop
         for elem in loop.Window.elems:
             if elem.rect.collidepoint(pos) and button == 1:
-                elem.onClick(loop)
+                elem.onClick(loop, elem)
 
     def handleInputText(self, keycode, loop):
         if (keycode == K_BACKSPACE):
@@ -74,6 +74,10 @@ class window(object):
             if elem.name == name:
                 return elem
 
+    def addElem(self, elem):
+        self.elems.append(elem)
+        self.update()
+
     def addButton(self, button):
         self.elems.append(button)
         self.update()
@@ -92,6 +96,10 @@ class window(object):
             if (elem.visible == True):
                 elem.rect = self.Window.blit(elem.surface, elem.pos)
         pygame.display.flip()
+
+    def addRect(self, shape):
+        self.elems.append(shape)
+        self.update()
 
     def setBackgroundColor(self, color):
         self.background = pygame.Surface(self.Window.get_size())
