@@ -80,6 +80,11 @@ class window(object):
         self.elems.append(elem)
         self.update()
 
+    def rmElem(self, name):
+        elem = self.findByName(name)
+        self.elems.pop(elem)
+        self.update()
+
     def addButton(self, button):
         self.elems.append(button)
         self.update()
