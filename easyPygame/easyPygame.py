@@ -14,10 +14,10 @@ class eventHandler():
         self.keys.append(key)
         self.functions.append(function)
 
-    def handle(self, key, loop, mods):
+    def handle(self, key, loop, mods, event_type):
         self.loop = loop
         if key in self.keys:
-            self.functions[self.keys.index(key)](loop, key, mods)
+            self.functions[self.keys.index(key)](loop, key, mods, event_type)
             
     def handleMouse(self, button, pos, loop):
         self.loop = loop
@@ -41,15 +41,15 @@ class loop(object):
         while (self.go_on):
             for event in pygame.event.get():
                 if (event.type == KEYDOWN):
-                    self.eventHandler.handle(event.key, self, pygame.key.get_mods())
+                    self.eventHandler.handle(event.key, self, pygame.key.get_mods(), event.type)
                     if (self.Window.input == True):
                         self.eventHandler.handleInputText(event.key, self)
                 if (event.type == MOUSEBUTTONDOWN):
                     self.eventHandler.handleMouse(event.button, pygame.mouse.get_pos(), self)
                 if (event.type == KEYUP):
-                    self.eventHandler.handle(event.key, self, pygame.key.get_mods())
+                    self.eventHandler.handle(event.key, self, pygame.key.get_mods(), event.type)
                 else:
-                    self.eventHandler.handle(event.type, self, pygame.key.get_mods())
+                    self.eventHandler.handle(event.type, self, pygame.key.get_mods(), event.type)
 
     def stop(self):
         self.go_on = 0
