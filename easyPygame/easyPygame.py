@@ -47,9 +47,9 @@ class loop(object):
                 if (event.type == MOUSEBUTTONDOWN):
                     self.eventHandler.handleMouse(event.button, pygame.mouse.get_pos(), self)
                 if (event.type == KEYUP):
-                    self.eventHandler.handle(event.key, self)
+                    self.eventHandler.handle(event.key, pygame.key.get_mods(), self)
                 else:
-                    self.eventHandler.handle(event.type, self)
+                    self.eventHandler.handle(event.type, pygame.key.get_mods(), self)
 
     def stop(self):
         self.go_on = 0
