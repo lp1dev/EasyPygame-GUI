@@ -11,6 +11,7 @@ class element(object):
               self.surface
               self.visible = True
               self.isClicked = False
+              self.isSelected = False
               self.alpha = 100
 
        def onClick(self, w, elem):
