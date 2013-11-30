@@ -1,5 +1,6 @@
 blue = (0,0,250)
 blue_marine = (17,61,255)
+blue_crosoft = (25,121,202)
 black = (0,0,0)
 white = (255,255,255)
 gray = (64,64,64)
