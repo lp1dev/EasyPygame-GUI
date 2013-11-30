@@ -17,7 +17,7 @@ class eventHandler():
     def handle(self, key, loop):
         self.loop = loop
         if key in self.keys:
-            self.functions[self.keys.index(key)](loop)
+            self.functions[self.keys.index(key)](loop, key)
             
     def handleMouse(self, button, pos, loop):
         self.loop = loop
