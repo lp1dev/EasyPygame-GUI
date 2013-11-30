@@ -81,9 +81,8 @@ class window(object):
         elem.position = len(self.elems - 1)
         self.update()
 
-    def rmElem(self, name):
-        elem = self.findByName(name)
-        self.elems.pop(elem)
+    def rmElem(self, elem):
+        self.elems.pop(elem.position)
         self.update()
 
     def addButton(self, button):
