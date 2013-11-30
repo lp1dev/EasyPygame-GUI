@@ -13,6 +13,7 @@ class element(object):
               self.isClicked = False
               self.isSelected = False
               self.alpha = 100
+              self.position = 0
 
        def onClick(self, w, elem):
               return 0

@@ -78,6 +78,7 @@ class window(object):
 
     def addElem(self, elem):
         self.elems.append(elem)
+        elem.position = len(self.elems - 1)
         self.update()
 
     def rmElem(self, name):
